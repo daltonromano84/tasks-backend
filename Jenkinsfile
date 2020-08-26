@@ -11,7 +11,7 @@ pipeline{
                 bat 'mvn test'
             }
           }
-             stage('Sonar Amalysis'){
+          stage('Sonar Amalysis'){
                  environment{
                      scannerHome = tool 'SONAR_SCANNER'
                  }
@@ -23,8 +23,17 @@ pipeline{
 
             }
         }
+          stage('Quality Gate'){
+        steps{
+            sleep(20)
+            timeout(time:1, unit:'MINUTES'){
+            waitForQualityGate abortPipeline:true
+            }
+        }
     }
 
+    }
 }
+  
 
 
