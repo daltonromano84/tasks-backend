@@ -10,6 +10,7 @@ pipeline{
             steps{
                 bat 'mvn test'
             }
+          }
              stage('Sonar Amalysis'){
                  environment{
                      scannerHome = tool 'SONAR_SCANNER'
