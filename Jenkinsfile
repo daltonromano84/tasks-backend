@@ -37,6 +37,17 @@ pipeline{
             }
         }
 
+             stage('Functional Test'){
+            steps{
+                 dir('functional-test'){
+                 git 'https://github.com/daltonromano84/tasks-functional-tests'
+                 bat 'mvn test'
+                
+            }
+            }
+        }
+
+
     }
 }
   
