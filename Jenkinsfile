@@ -51,12 +51,10 @@ pipeline{
                  bat 'docker-compose build'
                  bat 'docker-compose up -d'
             }
-            }
+        }
     }
         
-
-
-    }
 }
+
   
 
