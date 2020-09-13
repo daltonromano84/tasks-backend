@@ -46,13 +46,14 @@ pipeline{
             }
             }
         }
-           stage('Deploy Prod'){
+          stage('Deploy Prod'){
             steps{                
                  bat 'docker-compose build'
                  bat 'docker-compose up -d'
             }
             }
-        }
+    }
+        
 
 
     }
