@@ -37,7 +37,7 @@ pipeline{
             }
         }
 
-             stage('Functional Test'){
+          stage('Functional Test'){
             steps{
                  dir('functional-test'){
                  git 'https://github.com/daltonromano84/tasks-functional-tests'
@@ -50,6 +50,14 @@ pipeline{
             steps{                
                  bat 'docker-compose build'
                  bat 'docker-compose up -d'
+            }
+        }
+           stage('Health Check'){
+            steps{
+                 dir('functional-test'){
+                 bat 'mvn verify -Dskip.surefire.tests'
+                
+            }
             }
         }
     }
